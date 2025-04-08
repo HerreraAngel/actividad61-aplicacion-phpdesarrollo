@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta empleado/a</title>
+    <title>Alta Focas/a</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>Zoo</h1>
 	</header>
 	<main>				
 	<ul>
 		<li><a href="index.php">Inicio</a></li>
 		<li><a href="add.html">Alta</a></li>
 	</ul>
-	<h2>Alta empleado/a</h2>
+	<h2>Formulario de Focas</h2>
 <!--FORMULARIO DE ALTA. Al hacer click en el botón Agregar, llama a la página: add.php (form action="add.php")
 La página: add.php se encargará de proceder a la inserción del registro en la tabla de empleados
 -->
@@ -25,26 +25,51 @@ La página: add.php se encargará de proceder a la inserción del registro en la
 			<label for="name">Nombre</label>
 			<input type="text" name="name" id="name" placeholder="nombre" required>
 		</div>
-
-		<div>
-			<label for="surname">Apellido</label>
-			<input type="text" name="surname" id="surname" placeholder="apellido" required>
-		</div>
-
 		<div>
 			<label for="age">Edad</label>
 			<input type="number" name="age" id="age" placeholder="edad" required>
 		</div>
-
 		<div>
-			<label for="job">Puesto</label>
-			<select name="job" id="job" placeholder="puesto" required>
-				<option value="" disabled selected>Seleccione un puesto</option>
-				<option value="Administrativo">Administrativo</option>
-				<option value="Contable">Contable</option>
-				<option value="Dependiente">Dependiente</option>
-				<option value="Gerente">Gerente</option>
-				<option value="Repartidor">Repartidor</option>
+                        <label for="age">Peso</label>
+                        <input type="number" name="peso" id="peso" placeholder="peso" required>
+                </div>
+                <div>
+                        <label for="Habitat">Habitat</label>
+                        <select name="Habitat" id="Habitat" placeholder="Habitat" required>
+                                <option value="" disabled selected>Seleccione un habitat</option>
+                                <option value="Atlantico">Oceano Atlantico</option>
+                                <option value="Mar del Norte">Mar del norte</option>
+                                <option value="Pafico Norte">Pacifico Norte</option>
+                                <option value="Antartida">Antartida</option>
+                                <option value="Mediterraneo">Mediterraneo</option>
+                                <option value="Artico">Artico</option>
+				<option value="Mar Baltico">Mar Baltico</option>
+                                <option value="Atlantico Norte">Atlantico Norte</option>
+                                <option value="Costa de California">Costa de California</option>                        
+		     		<option value="Oceano Antartico">Oceano Antartico</option>
+</select>
+                </div>
+		<div>
+		      <label for="titulo">Fecha de ingreso</label>
+
+			<input
+  			type="date"
+			id="fecha"
+			name="trip-start"
+			value="2001-09-11"
+			min="2000-01-01"
+			max="2100-12-31" />
+		</div>
+                <div>
+			<label for="Especie">Especie</label>
+			<select name="Especie" id="Especie" placeholder="raza" required>
+				<option value="" disabled selected>Seleccione una especie</option>
+				<option value="Foca monje">Monje</option>
+				<option value="Foca gris">Gris</option>
+				<option value="Foca comun">Comun</option>
+				<option value="Foca leopardo">Leopardo</option>
+				<option value="Foca barbuda">Barbuda</option>
+				<option value="Foca anillada">Anillada</option>
 			</select>	
 		</div>
 

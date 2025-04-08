@@ -13,12 +13,12 @@ include_once("config.php");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<title>Electroshop S.L.</title>
+	<title>El Rincon de las Focas</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.A.</h1>
+		<h1>ZOO.</h1>
 	</header>
 
 	<main>
@@ -26,15 +26,16 @@ include_once("config.php");
 		<li><a href="index.php">Inicio</a></li>
 		<li><a href="add.html">Alta</a></li>
 	</ul>
-	<h2>YA HEMOS TERMINADO!!!!!!!!</h2>
 	<table border="1">
 	<thead>
 		<tr>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Edad</th>
-			<th>Puesto</th>
-			<th>Acciones</th>
+			<th>foca_id</th>
+			<th>nombre</th>
+			<th>edad</th>
+			<th>peso</th>
+			<th>habitat</th>
+			<th>fecha_registro</th>
+			<th>especie</th>
 		</tr>
 	</thead>
 	<tbdody>
@@ -87,10 +88,13 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 
 	while($fila = $resultado->fetch_array()) {
 		echo "<tr>\n";
+		echo "<td>".$fila['foca_id']."</td>\n";
 		echo "<td>".$fila['nombre']."</td>\n";
-		echo "<td>".$fila['apellido']."</td>\n";
 		echo "<td>".$fila['edad']."</td>\n";
-		echo "<td>".$fila['puesto']."</td>\n";
+		echo "<td>".$fila['peso']."</td>\n";
+		echo "<td>".$fila['habitat']."</td>\n";
+		echo "<td>".$fila['fecha_registro']."</td>\n";
+		echo "<td>".$fila['especie']."</td>\n";
 		echo "<td>";
 /* En la última columna se añade dos enlaces para editar y modificar el registro correspondiente. 
 Los datos se pueden enviar entre distintas páginas siguiendo distintos métodos. En este caso el id del registro a editar/eliminar se pasa a través de la URL. 
