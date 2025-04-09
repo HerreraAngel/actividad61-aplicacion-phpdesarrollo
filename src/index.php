@@ -12,19 +12,19 @@ include_once("config.php");
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>El Rincon de las Focas</title>
 </head>
 <body>
 <div>
 	<header>
-		<h1>ZOO.</h1>
+		<h1>Zoo</h1>
 	</header>
 
 	<main>
 	<ul>
 		<li><a href="index.php">Inicio</a></li>
-		<li><a href="add.html">Alta</a></li>
+		<li><a href="add.html">Añadir Animales</a></li>
 	</ul>
 	<table border="1">
 	<thead>
@@ -45,7 +45,7 @@ include_once("config.php");
 Cada fila y cada columna de la tabla se corresponde con un registro y campo de la tabla EMPLEADOS.
 */
 
-$resultado = $mysqli->query("SELECT * FROM empleados ORDER BY apellido, nombre");
+$resultado = $mysqli->query("SELECT * FROM focas ORDER by foca_id");
 
 //Cierra la conexión de la BD
 $mysqli->close();
@@ -93,14 +93,14 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 		echo "<td>".$fila['edad']."</td>\n";
 		echo "<td>".$fila['peso']."</td>\n";
 		echo "<td>".$fila['habitat']."</td>\n";
-		echo "<td>".$fila['fecha_registro']."</td>\n";
+		echo "<td>".$fila['fecha']."</td>\n";
 		echo "<td>".$fila['especie']."</td>\n";
 		echo "<td>";
 /* En la última columna se añade dos enlaces para editar y modificar el registro correspondiente. 
 Los datos se pueden enviar entre distintas páginas siguiendo distintos métodos. En este caso el id del registro a editar/eliminar se pasa a través de la URL. 
 Este forma de pasar el dato se conoce como: método GET*/
-		echo "<a href=\"edit.php?idempleado=$fila[id]\">Edición</a>\n";
-		echo "<a href=\"delete.php?idempleado=$fila[id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar el empleado/a?')\" >Baja</a></td>\n";
+		echo "<a href=\"edit.php?foca_id=$fila[foca_id]\">Edición</a>\n";
+		echo "<a href=\"delete.php?foca_id=$fila[foca_id]\" onClick=\"return confirm('¿Está segur@ que desea eliminar este animal/a?')\" >Baja</a></td>\n";
 		echo "</td>";
 		echo "</tr>\n";
 	}//fin mientras

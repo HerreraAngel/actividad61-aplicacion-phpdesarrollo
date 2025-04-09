@@ -15,8 +15,8 @@ include_once("config.php");
 	<header>
 		<h1>ELECTROSHOP S.L.</h1>
 	</header>
-	
-	<main>				
+
+	<main>
 	<ul>
 		<li><a href="index.php" >Inicio</a></li>
 		<li><a href="add.html" >Alta</a></li>
@@ -30,10 +30,10 @@ include_once("config.php");
 /*Obtiene el id del registro del empleado a modificar, idempleado, a partir de su URL. Este tipo de datos se accede utilizando el método: GET*/
 
 //Recoge el id del empleado a modificar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$idempleado = $_GET['idempleado'];
+$idfoca = $_GET['idempleado'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$idempleado = $mysqli->real_escape_string($idempleado);
+$idfoca = $mysqli->real_escape_string($idempleado);
 
 
 //Se selecciona el registro a modificar: select
@@ -42,10 +42,10 @@ $resultado = $mysqli->query("SELECT apellido, nombre, edad, puesto FROM empleado
 //Se extrae el registro y lo guarda en el array $fila
 //Nota: También se puede utilizar el método fetch_assoc de la siguiente manera: $fila = $resultado->fetch_assoc();
 $fila = $resultado->fetch_array();
-$surname = $fila['apellido'];
+$habitat = $fila['habitat'];
 $name = $fila['nombre'];
 $age = $fila['edad'];
-$job = $fila['puesto'];
+$especie = $fila['especie'];
 
 //Se cierra la conexión de base de datos
 $mysqli->close();
