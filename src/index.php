@@ -36,6 +36,7 @@ include_once("config.php");
 			<th>habitat</th>
 			<th>fecha_registro</th>
 			<th>especie</th>
+			<th>Acciones</th>
 		</tr>
 	</thead>
 	<tbdody>
@@ -93,7 +94,7 @@ A medida que avanza se va consturyendo cada fila de la tabla HTML con todos los 
 		echo "<td>".$fila['edad']."</td>\n";
 		echo "<td>".$fila['peso']."</td>\n";
 		echo "<td>".$fila['habitat']."</td>\n";
-		echo "<td>".$fila['fecha']."</td>\n";
+		echo "<td>".$fila['fecha_registro']."</td>\n";
 		echo "<td>".$fila['especie']."</td>\n";
 		echo "<td>";
 /* En la última columna se añade dos enlaces para editar y modificar el registro correspondiente. 
