@@ -4,7 +4,7 @@ include_once("config.php");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,23 +20,29 @@ include_once("config.php");
 <?php
 if (isset($_POST['inserta'])) {
     // Obtener datos del formulario
-    $nombre = $_POST['nombre'];
-    $edad = $_POST['edad'];
+    $nombre = $_POST['name']; // Cambié 'nombre' por 'name' para que coincida con el formulario
+    $edad = $_POST['age']; // Cambié 'edad' por 'age'
     $peso = $_POST['peso'];
-    $especie = $_POST['especie'];
-    $habitat = $_POST['habitat'];
+    $especie = $_POST['Especie']; // Cambié 'especie' por 'Especie' para que coincida con el formulario
+    $habitat = $_POST['Habitat']; // Cambié 'habitat' por 'Habitat'
 
-    // Incluir conexión
-    include_once("config.php");
+    // Validar datos (puedes agregar más validaciones si lo necesitas)
+    if (!empty($nombre) && !empty($edad) && !empty($peso) && !empty($especie) && !empty($habitat)) {
+        // Crear una consulta SQL preparada
+        $stmt = $conexion->prepare("INSERT INTO focas (nombre, edad, peso, especie, habitat) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sdisi", $nombre, $edad, $peso, $especie, $habitat); // s = string, i = integer, d = double
+        
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            echo "<p>Foca agregada correctamente.</p>";
+        } else {
+            echo "<p>Error al agregar foca: " . $stmt->error . "</p>";
+        }
 
-    // Insertar datos en la tabla focas
-    $resultado = mysqli_query($conexion, "INSERT INTO focas (nombre, edad, peso, especie, habitat) 
-                                          VALUES ('$nombre', '$edad', '$peso', '$especie', '$habitat')");
-
-    if ($resultado) {
-        echo "<p>Foca agregada correctamente.</p>";
+        // Cerrar la declaración
+        $stmt->close();
     } else {
-        echo "<p>Error al agregar foca: " . mysqli_error($conexion) . "</p>";
+        echo "<p>Por favor, complete todos los campos.</p>";
     }
 }
 ?>
@@ -46,3 +52,4 @@ if (isset($_POST['inserta'])) {
 </div>
 </body>
 </html>
+
