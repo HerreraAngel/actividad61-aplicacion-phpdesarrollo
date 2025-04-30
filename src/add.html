@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta Focas/a</title>
+    <title>Alta Focas</title>
 </head>
 <body>
 <div>
     <header>
         <h1>Zoo</h1>
     </header>
-
     <main>
         <ul>
             <li><a href="index.php">Inicio</a></li>
             <li><a href="add.html">Añadir animales</a></li>
         </ul>
-
         <h2>Formulario de Focas</h2>
 
-        <!--FORMULARIO DE ALTA. Al hacer click en el botón Agregar, llama a la página: add.php (form action="add.php")
-        La página: add.php se encargará de proceder a la inserción del registro en la tabla de empleados-->
+        <!--FORMULARIO DE ALTA. Al hacer click en el botón Agregar, llama a la página: add.php-->
         <form action="add_action.php" method="post">
+            <div>
+                <label for="codigo_animal">Código del Animal (formato Foca_XXXXXX)</label>
+                <input type="text" name="codigo_animal" id="codigo_animal" placeholder="Código del animal" required>
+                <small>Instrucciones: El código debe tener el formato 'Foca_XXXXXX', donde 'XXXXXX' es un número único.</small>
+            </div>
             <div>
                 <label for="name">Nombre</label>
                 <input type="text" name="name" id="name" placeholder="Nombre" required>
@@ -36,31 +38,31 @@
             </div>
             <div>
                 <label for="Habitat">Hábitat</label>
-                <select name="Habitat" id="Habitat" required>
+                <select name="Habitat" id="Habitat" placeholder="Hábitat" required>
                     <option value="" disabled selected>Seleccione un hábitat</option>
                     <option value="Atlantico">Océano Atlántico</option>
                     <option value="Mar del Norte">Mar del Norte</option>
-                    <option value="Pacífico Norte">Pacífico Norte</option>
-                    <option value="Antártida">Antártida</option>
-                    <option value="Mediterráneo">Mediterráneo</option>
-                    <option value="Ártico">Ártico</option>
-                    <option value="Mar Báltico">Mar Báltico</option>
-                    <option value="Atlántico Norte">Atlántico Norte</option>
+                    <option value="Pacifico Norte">Pacífico Norte</option>
+                    <option value="Antartida">Antártida</option>
+                    <option value="Mediterraneo">Mediterráneo</option>
+                    <option value="Artico">Ártico</option>
+                    <option value="Mar Baltico">Mar Báltico</option>
+                    <option value="Atlantico Norte">Atlántico Norte</option>
                     <option value="Costa de California">Costa de California</option>
-                    <option value="Océano Antártico">Océano Antártico</option>
+                    <option value="Oceano Antartico">Océano Antártico</option>
                 </select>
             </div>
             <div>
-                <label for="fecha">Fecha de Ingreso</label>
-                <input type="date" id="fecha" name="fecha_ingreso" min="2000-01-01" max="2100-12-31" required />
+                <label for="titulo">Fecha de ingreso</label>
+                <input type="date" id="fecha" name="trip-start" value="2001-09-11" min="2000-01-01" max="2100-12-31" />
             </div>
             <div>
                 <label for="Especie">Especie</label>
-                <select name="Especie" id="Especie" required>
+                <select name="Especie" id="Especie" placeholder="Especie" required>
                     <option value="" disabled selected>Seleccione una especie</option>
                     <option value="Foca monje">Monje</option>
                     <option value="Foca gris">Gris</option>
-                    <option value="Foca común">Común</option>
+                    <option value="Foca comun">Común</option>
                     <option value="Foca leopardo">Leopardo</option>
                     <option value="Foca barbuda">Barbuda</option>
                     <option value="Foca anillada">Anillada</option>
@@ -73,12 +75,11 @@
                 <input type="button" value="Cancelar" onclick="location.href='index.php'">
             </div>
         </form>
-
     </main>
-
     <footer>
-        Creado por el equipo del IES Miguel Herrero &copy; 2025
+        Created by the IES Miguel Herrero team &copy; 2025
     </footer>
 </div>
 </body>
 </html>
+
