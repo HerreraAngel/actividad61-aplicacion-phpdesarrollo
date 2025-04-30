@@ -20,10 +20,13 @@ if (isset($_POST['inserta'])) {
     $especie = $_POST['Especie'];
     $habitat = $_POST['Habitat'];
 
+    // Generar un código único para el código de animal
+    $codigo_animal = uniqid('Foca_', true);  // Esto genera un ID único
+
     // Verificar que los datos no estén vacíos
     if (!empty($nombre) && !empty($edad) && !empty($peso) && !empty($especie) && !empty($habitat)) {
         // Crear la consulta SQL preparada
-        $stmt = $mysqli->prepare("INSERT INTO focas (nombre, edad, peso, especie, habitat) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $mysqli->prepare("INSERT INTO focas (codigo_animal, nombre, edad, peso, especie, habitat) VALUES (?, ?, ?, ?, ?, ?)");
         
         // Verificar si la preparación de la consulta fue exitosa
         if (!$stmt) {
@@ -31,7 +34,7 @@ if (isset($_POST['inserta'])) {
         }
 
         // Asociar los parámetros con los valores
-        $stmt->bind_param("sdisi", $nombre, $edad, $peso, $especie, $habitat); // s = string, i = integer, d = double
+        $stmt->bind_param("ssisii", $codigo_animal, $nombre, $edad, $peso, $especie, $habitat); // s = string, i = integer, d = double
         
         // Ejecutar la consulta
         if ($stmt->execute()) {
