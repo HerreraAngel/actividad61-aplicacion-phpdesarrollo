@@ -14,16 +14,20 @@ if ($mysqli->connect_error) {
 // Verificar si el formulario ha sido enviado
 if (isset($_POST['inserta'])) {
     // Obtener los datos del formulario
+    $codigo_animal = $_POST['codigo_animal'];
     $nombre = $_POST['name'];
     $edad = $_POST['age'];
     $peso = $_POST['peso'];
     $especie = $_POST['Especie'];
     $habitat = $_POST['Habitat'];
 
-    // Generar un código único para el código de animal
-    $codigo_animal = substr(uniqid('Foca_', true), 0, 20);  // Limitar a 20 caracteres
+    // Validar que el código de animal tenga el formato 'Foca_XXXXXX'
+    if (!preg_match('/^Foca_\d{6}$/', $codigo_animal)) {
+        echo "<p>Error: El código del animal debe seguir el formato 'Foca_XXXXXX', donde 'XXXXXX' es un número de 6 dígitos.</p>";
+        exit;
+    }
 
-    // Verificar que los datos no estén vacíos
+    // Verificar que los demás campos no estén vacíos
     if (!empty($nombre) && !empty($edad) && !empty($peso) && !empty($especie) && !empty($habitat)) {
         // Crear la consulta SQL preparada
         $stmt = $mysqli->prepare("INSERT INTO focas (codigo_animal, nombre, edad, peso, especie, habitat) VALUES (?, ?, ?, ?, ?, ?)");
