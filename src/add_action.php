@@ -21,7 +21,7 @@ if (isset($_POST['inserta'])) {
     $habitat = $_POST['Habitat'];
 
     // Generar un código único para el código de animal
-    $codigo_animal = uniqid('Foca_', true);  // Esto genera un ID único
+    $codigo_animal = substr(uniqid('Foca_', true), 0, 20);  // Limitar a 20 caracteres
 
     // Verificar que los datos no estén vacíos
     if (!empty($nombre) && !empty($edad) && !empty($peso) && !empty($especie) && !empty($habitat)) {
