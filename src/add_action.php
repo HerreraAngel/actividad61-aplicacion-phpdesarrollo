@@ -21,9 +21,9 @@ if (isset($_POST['inserta'])) {
     $especie = $_POST['Especie'];
     $habitat = $_POST['Habitat'];
 
-    // Validar que el código de animal tenga el formato 'Foca_XXXXXX'
-    if (!preg_match('/^Foca_\d{6}$/', $codigo_animal)) {
-        echo "<p>Error: El código del animal debe seguir el formato 'Foca_XXXXXX', donde 'XXXXXX' es un número de 6 dígitos.</p>";
+    // Validar que el código de animal tenga el formato '8 dígitos + 1 letra'
+    if (!preg_match('/^\d{8}[A-Za-z]$/', $codigo_animal)) {
+        echo "<p>Error: El código del animal debe seguir el formato 'XXXXXXXXX' donde 'XXXXXXXX' son 8 dígitos seguidos de una letra.</p>";
         exit;
     }
 
@@ -31,7 +31,7 @@ if (isset($_POST['inserta'])) {
     if (!empty($nombre) && !empty($edad) && !empty($peso) && !empty($especie) && !empty($habitat)) {
         // Crear la consulta SQL preparada
         $stmt = $mysqli->prepare("INSERT INTO focas (codigo_animal, nombre, edad, peso, especie, habitat) VALUES (?, ?, ?, ?, ?, ?)");
-        
+
         // Verificar si la preparación de la consulta fue exitosa
         if (!$stmt) {
             die("Error al preparar la consulta: " . $mysqli->error);
@@ -39,7 +39,7 @@ if (isset($_POST['inserta'])) {
 
         // Asociar los parámetros con los valores
         $stmt->bind_param("ssisii", $codigo_animal, $nombre, $edad, $peso, $especie, $habitat); // s = string, i = integer, d = double
-        
+
         // Ejecutar la consulta
         if ($stmt->execute()) {
             // Redirigir al usuario a la página principal después de insertar
