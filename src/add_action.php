@@ -38,7 +38,7 @@ if (isset($_POST['inserta'])) {
         }
 
         // Asociar los parámetros con los valores
-        $stmt->bind_param("ssisii", $codigo_animal, $nombre, $edad, $peso, $especie, $habitat); // s = string, i = integer, d = double
+        $stmt->bind_param("ssisss", $codigo_animal, $nombre, $edad, $peso, $especie, $habitat); // s = string, i = integer, d = double
 
         // Ejecutar la consulta
         if ($stmt->execute()) {
