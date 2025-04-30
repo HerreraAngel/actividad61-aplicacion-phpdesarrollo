@@ -6,6 +6,11 @@ include_once("config.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Verificar que la conexión se haya establecido correctamente
+if ($mysqli->connect_error) {
+    die("Error de conexión a la base de datos: " . $mysqli->connect_error);
+}
+
 // Verificar si el formulario ha sido enviado
 if (isset($_POST['inserta'])) {
     // Obtener los datos del formulario
@@ -19,6 +24,13 @@ if (isset($_POST['inserta'])) {
     if (!empty($nombre) && !empty($edad) && !empty($peso) && !empty($especie) && !empty($habitat)) {
         // Crear la consulta SQL preparada
         $stmt = $mysqli->prepare("INSERT INTO focas (nombre, edad, peso, especie, habitat) VALUES (?, ?, ?, ?, ?)");
+        
+        // Verificar si la preparación de la consulta fue exitosa
+        if (!$stmt) {
+            die("Error al preparar la consulta: " . $mysqli->error);
+        }
+
+        // Asociar los parámetros con los valores
         $stmt->bind_param("sdisi", $nombre, $edad, $peso, $especie, $habitat); // s = string, i = integer, d = double
         
         // Ejecutar la consulta
@@ -39,8 +51,4 @@ if (isset($_POST['inserta'])) {
     echo "<p>No se ha enviado el formulario aún.</p>";
 }
 ?>
-
-</div>
-</body>
-</html>
 
