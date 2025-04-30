@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,83 +7,78 @@
 </head>
 <body>
 <div>
-	<header>
-		<h1>Zoo</h1>
-	</header>
-	<main>				
-	<ul>
-		<li><a href="index.php">Inicio</a></li>
-		<li><a href="add.html">Añadir animales</a></li>
-	</ul>
-	<h2>Formulario de Focas</h2>
-<!--FORMULARIO DE ALTA. Al hacer click en el botón Agregar, llama a la página: add.php (form action="add.php")
-La página: add.php se encargará de proceder a la inserción del registro en la tabla de empleados
--->
+    <header>
+        <h1>Zoo</h1>
+    </header>
 
-	<form action="add_action.php" method="post">
-		<div>
-			<label for="name">Nombre</label>
-			<input type="text" name="name" id="name" placeholder="nombre" required>
-		</div>
-		<div>
-			<label for="age">Edad</label>
-			<input type="number" name="age" id="age" placeholder="edad" required>
-		</div>
-		<div>
-                        <label for="peso">Peso</label>
-                        <input type="number" name="peso" id="peso" placeholder="peso" required>
-                </div>
-                <div>
-                        <label for="Habitat">Habitat</label>
-                        <select name="Habitat" id="Habitat" placeholder="Habitat" required>
-                                <option value="" disabled selected>Seleccione un habitat</option>
-                                <option value="Atlantico">Oceano Atlantico</option>
-                                <option value="Mar del Norte">Mar del norte</option>
-                                <option value="Pafico Norte">Pacifico Norte</option>
-                                <option value="Antartida">Antartida</option>
-                                <option value="Mediterraneo">Mediterraneo</option>
-                                <option value="Artico">Artico</option>
-				<option value="Mar Baltico">Mar Baltico</option>
-                                <option value="Atlantico Norte">Atlantico Norte</option>
-                                <option value="Costa de California">Costa de California</option>                        
-		     		<option value="Oceano Antartico">Oceano Antartico</option>
-</select>
-                </div>
-		<div>
-		      <label for="titulo">Fecha de ingreso</label>
+    <main>
+        <ul>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="add.html">Añadir animales</a></li>
+        </ul>
 
-			<input
-  			type="date"
-			id="fecha"
-			name="trip-start"
-			value="2001-09-11"
-			min="2000-01-01"
-			max="2100-12-31" />
-		</div>
-                <div>
-			<label for="Especie">Especie</label>
-			<select name="Especie" id="Especie" placeholder="raza" required>
-				<option value="" disabled selected>Seleccione una especie</option>
-				<option value="Foca monje">Monje</option>
-				<option value="Foca gris">Gris</option>
-				<option value="Foca comun">Comun</option>
-				<option value="Foca leopardo">Leopardo</option>
-				<option value="Foca barbuda">Barbuda</option>
-				<option value="Foca anillada">Anillada</option>
-			</select>	
-		</div>
+        <h2>Formulario de Focas</h2>
 
-		<div>
-			<label for="botones">Acciones</label>
-			<input type="submit" name="inserta" value="Agregar">
-			<input type="button" value="Cancelar" onclick="location.href='index.php'">
-		</div>
-	</form>
-	
-	</main>	
-	<footer>
-	Created by the IES Miguel Herrero team &copy; 2025
-  	</footer>
+        <!--FORMULARIO DE ALTA. Al hacer click en el botón Agregar, llama a la página: add.php (form action="add.php")
+        La página: add.php se encargará de proceder a la inserción del registro en la tabla de empleados-->
+        <form action="add_action.php" method="post">
+            <div>
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name" placeholder="Nombre" required>
+            </div>
+            <div>
+                <label for="age">Edad</label>
+                <input type="number" name="age" id="age" placeholder="Edad" required>
+            </div>
+            <div>
+                <label for="peso">Peso</label>
+                <input type="number" name="peso" id="peso" placeholder="Peso" required>
+            </div>
+            <div>
+                <label for="Habitat">Hábitat</label>
+                <select name="Habitat" id="Habitat" required>
+                    <option value="" disabled selected>Seleccione un hábitat</option>
+                    <option value="Atlantico">Océano Atlántico</option>
+                    <option value="Mar del Norte">Mar del Norte</option>
+                    <option value="Pacífico Norte">Pacífico Norte</option>
+                    <option value="Antártida">Antártida</option>
+                    <option value="Mediterráneo">Mediterráneo</option>
+                    <option value="Ártico">Ártico</option>
+                    <option value="Mar Báltico">Mar Báltico</option>
+                    <option value="Atlántico Norte">Atlántico Norte</option>
+                    <option value="Costa de California">Costa de California</option>
+                    <option value="Océano Antártico">Océano Antártico</option>
+                </select>
+            </div>
+            <div>
+                <label for="fecha">Fecha de Ingreso</label>
+                <input type="date" id="fecha" name="fecha_ingreso" min="2000-01-01" max="2100-12-31" required />
+            </div>
+            <div>
+                <label for="Especie">Especie</label>
+                <select name="Especie" id="Especie" required>
+                    <option value="" disabled selected>Seleccione una especie</option>
+                    <option value="Foca monje">Monje</option>
+                    <option value="Foca gris">Gris</option>
+                    <option value="Foca común">Común</option>
+                    <option value="Foca leopardo">Leopardo</option>
+                    <option value="Foca barbuda">Barbuda</option>
+                    <option value="Foca anillada">Anillada</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="botones">Acciones</label>
+                <input type="submit" name="inserta" value="Agregar">
+                <input type="button" value="Cancelar" onclick="location.href='index.php'">
+            </div>
+        </form>
+
+    </main>
+
+    <footer>
+        Creado por el equipo del IES Miguel Herrero &copy; 2025
+    </footer>
 </div>
 </body>
 </html>
