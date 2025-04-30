@@ -23,7 +23,7 @@ if (isset($_POST['inserta'])) {
 
     // Validar que el código de animal tenga el formato '8 dígitos + 1 letra'
     if (!preg_match('/^\d{8}[A-Za-z]$/', $codigo_animal)) {
-        echo "<p>Error: El código del animal debe seguir el formato 'XXXXXXXXX' donde 'XXXXXXXX' son 8 dígitos seguidos de una letra.</p>";
+        echo "<p>Error: El código del animal debe seguir el formato 8 dígitos seguidos de una letra.</p>";
         exit;
     }
 
