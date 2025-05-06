@@ -28,7 +28,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM focas ORDER BY foca_id DESC");
         <table border="1" cellpadding="10">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Código Animal</th>
                     <th>Nombre</th>
                     <th>Edad</th>
@@ -42,7 +41,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM focas ORDER BY foca_id DESC");
             <tbody>
                 <?php while($res = mysqli_fetch_array($result)) { ?>
                 <tr>
-                    <td><?= $res['foca_id'] ?></td>
                     <td><?= $res['codigo_animal'] ?? 'N/A' ?></td>
                     <td><?= $res['nombre'] ?></td>
                     <td><?= $res['edad'] ?></td>

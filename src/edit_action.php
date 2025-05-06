@@ -27,7 +27,7 @@ if (isset($_POST['modifica'])) {
             SET nombre = ?, edad = ?, peso = ?, especie = ?, habitat = ? 
             WHERE foca_id = ?";
     $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("sidsii", $nombre, $edad, $peso, $especie, $habitat, $foca_id);
+    $stmt->bind_param("sidssi", $nombre, $edad, $peso, $especie, $habitat, $foca_id);
 
     if ($stmt->execute()) {
         echo "<p>✅ Foca actualizada correctamente.</p>";
