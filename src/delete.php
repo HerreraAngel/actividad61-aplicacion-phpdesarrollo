@@ -3,7 +3,7 @@
 include("config.php");
 
 
-$idfoca = $_GET['idfoca'] ?? null;
+$idfoca = $_GET['foca_id'] ?? null;
 
 if ($idfoca) {
   
