@@ -3,7 +3,7 @@
 include("config.php");
 
 // Recoge el id de la foca a eliminar
-$idfoca = $_GET['idfoca'] ?? null;
+$idfoca = $_GET['ID'] ?? null;
 
 if ($idfoca) {
     // Limpia el valor
