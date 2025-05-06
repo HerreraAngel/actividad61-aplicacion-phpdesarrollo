@@ -3,14 +3,17 @@
 include("config.php");
 
 // Recoge el id de la foca a eliminar
-$idfoca = $_GET['ID'] ?? null;
+$foca_id = $_GET['id'] ?? null;
 
-if ($idfoca) {
+
+$resultado = $mysqli->query("SELECT * FROM focas WHERE foca_id = $foca_id");
+
+if ($foca_id) {
     // Limpia el valor
-    $idfoca = $mysqli->real_escape_string($idfoca);
+    $foca_id = $mysqli->real_escape_string($foca_id);
 
     // Ejecuta el borrado
-    $result = $mysqli->query("DELETE FROM focas WHERE foca_id = $idfoca");
+    $result = $mysqli->query("DELETE FROM focas WHERE foca_id = $foca_id");
 
     // Cierra la conexión
     $mysqli->close();
