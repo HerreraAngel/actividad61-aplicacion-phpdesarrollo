@@ -1,25 +1,20 @@
 <?php
-// Incluye fichero con parámetros de conexión a la base de datos
 include_once("config.php");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Editar Foca</title>
+    <title>Resultado de Edición</title>
 </head>
 <body>
-<div>
     <header>
-        <h1>Editar Información de Foca</h1>
+        <h1>Resultado de la Edición</h1>
     </header>
     <main>
-
 <?php
 if (isset($_POST['modifica'])) {
-    // Obtener datos del formulario
     $foca_id = $_POST['foca_id'];
     $nombre = $_POST['nombre'];
     $edad = $_POST['edad'];
@@ -27,25 +22,23 @@ if (isset($_POST['modifica'])) {
     $especie = $_POST['especie'];
     $habitat = $_POST['habitat'];
 
-    // Incluir conexión
-    include_once("config.php");
+    // Actualización en la base de datos
+    $sql = "UPDATE focas 
+            SET nombre = ?, edad = ?, peso = ?, especie = ?, habitat = ? 
+            WHERE foca_id = ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("sidsii", $nombre, $edad, $peso, $especie, $habitat, $foca_id);
 
-    // Actualizar datos en la tabla focas
-    $resultado = mysqli_query($conexion, "UPDATE focas 
-                                          SET nombre='$nombre', edad='$edad', peso='$peso', especie='$especie', habitat='$habitat' 
-                                          WHERE foca_id='$foca_id'");
-
-    if ($resultado) {
+    if ($stmt->execute()) {
         echo "<p>✅ Foca actualizada correctamente.</p>";
     } else {
-        echo "<p>❌ Error al actualizar foca: " . mysqli_error($conexion) . "</p>";
+        echo "<p>❌ Error al actualizar foca: " . $stmt->error . "</p>";
     }
+
+    $stmt->close();
 }
 ?>
-
-    <p><a href='index.php'>Volver a la página principal</a></p>
+        <p><a href="index.php">Volver al inicio</a></p>
     </main>
-</div>
 </body>
 </html>
-
