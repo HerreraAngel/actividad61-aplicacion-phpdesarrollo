@@ -13,7 +13,7 @@ include("config.php");
 <body>
 <div>
 	<header>
-		<h1>ELECTROSHOP S.L.</h1>
+		<h1>El rincon de las Focas.</h1>
 	</header>
 	<main>
 
@@ -27,13 +27,13 @@ PHP proporciona el array asociativo $_POST para acceder a la información enviad
 */
 
 //Recoge el id del empleado a eliminar a través de la clave idempleado del array asociativo $_GET y lo almacena en la variable idempleado
-$idempleado = $_GET['foca_id'];
+$idfoca = $_GET['idfoca'];
 
 //Con mysqli_real_scape_string protege caracteres especiales en una cadena para ser usada en una sentencia SQL.
-$idempleado = $mysqli->real_escape_string($foca_id);
+$idfoca = $mysqli->real_escape_string($idfoca);
 
 //Se realiza el borrado del registro: delete.
-$result = $mysqli->query("DELETE FROM empleados WHERE id = $foca_id");
+$result = $mysqli->query("DELETE FROM focas WHERE foca_id = $idfoca");
 
 //Se cierra la conexión de base de datos previamente abierta
 $mysqli->close();
