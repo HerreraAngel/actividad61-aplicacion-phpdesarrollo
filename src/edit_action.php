@@ -7,12 +7,14 @@ include_once("config.php");
 <head>
     <meta charset="UTF-8">
     <title>Resultado de Edición</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
+<div class="container mt-5">
     <header>
-        <h1>Resultado de la Edición</h1>
+        <h1 class="text-center">Resultado de la Edición</h1>
     </header>
-    <main>
+    <main class="mt-4">
 <?php
 if (isset($_POST['modifica'])) {
     $foca_id = $_POST['foca_id'];
@@ -22,23 +24,21 @@ if (isset($_POST['modifica'])) {
     $especie = $_POST['especie'];
     $habitat = $_POST['habitat'];
 
-    // Actualización en la base de datos
-    $sql = "UPDATE focas 
-            SET nombre = ?, edad = ?, peso = ?, especie = ?, habitat = ? 
-            WHERE foca_id = ?";
+    $sql = "UPDATE focas SET nombre = ?, edad = ?, peso = ?, especie = ?, habitat = ? WHERE foca_id = ?";
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("sidssi", $nombre, $edad, $peso, $especie, $habitat, $foca_id);
 
     if ($stmt->execute()) {
-        echo "<p>✅ Foca actualizada correctamente.</p>";
+        echo '<div class="alert alert-success">✅ Foca actualizada correctamente.</div>';
     } else {
-        echo "<p>❌ Error al actualizar foca: " . $stmt->error . "</p>";
+        echo '<div class="alert alert-danger">❌ Error al actualizar foca: ' . $stmt->error . '</div>';
     }
-
     $stmt->close();
 }
 ?>
-        <p><a href="index.php">Volver al inicio</a></p>
+        <a href="index.php" class="btn btn-primary">Volver al inicio</a>
     </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
