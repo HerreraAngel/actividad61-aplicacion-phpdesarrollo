@@ -53,6 +53,35 @@ $result = mysqli_query($mysqli, "SELECT * FROM focas ORDER BY foca_id DESC");
                             <a href="delete.php?id=<?= $res['foca_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Seguro que deseas eliminarlo?')">Eliminar</a>
                         </td>
                     </tr>
+                 
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Código Animal</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Peso (kg)</th>
+                    <th>Especie</th>
+                    <th>Hábitat</th>
+                    <th>Fecha de Registro</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while($res = mysqli_fetch_array($result)) { ?>
+                <tr>
+                    <td><?= $res['codigo_animal'] ?? 'N/A' ?></td>
+                    <td><?= $res['nombre'] ?></td>
+                    <td><?= $res['edad'] ?></td>
+                    <td><?= $res['peso'] ?></td>
+                    <td><?= $res['especie'] ?></td>
+                    <td><?= $res['habitat'] ?></td>
+                    <td><?= $res['fecha_registro'] ?></td>
+                    <td>
+                        <a href="edit.php?id=<?= $res['foca_id'] ?>">Editar</a> |
+                        <a href="delete.php?id=<?= $res['foca_id'] ?>" onclick="return confirm('¿Seguro que deseas eliminarlo?')">Eliminar</a>
+                    </td>
+                </tr>
                 <?php } ?>
                 </tbody>
             </table>
