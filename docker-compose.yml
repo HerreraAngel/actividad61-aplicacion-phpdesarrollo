@@ -5,7 +5,8 @@
 services:
 # Servicio 1: apache con aplicación APLICACION LAMP CRUD PHP. Utiliza la imagen: lumigv/lamp-crud-app:1.0
   apache:
-    image: angelherreraallende/funciona:latest
+  image: angelherreraallende/funciona:general
+
 
     ports:
       - 80:80
