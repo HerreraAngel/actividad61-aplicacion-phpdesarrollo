@@ -13,7 +13,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM focas ORDER BY foca_id DESC");
 <body class="bg-light">
 <div class="container mt-4">
     <header class="mb-4">
-        <h1 class="text-center">El Rincón de las Focas&Leones Marinos</h1>
+        <h1 class="text-center">El Rincón de las Focas y Leones Marinos</h1>
     </header>
 
     <nav class="mb-3">
