@@ -33,17 +33,18 @@ jobs:
 # Settings > Secrets and variables > Actions > New repository secret
 # DOCKER_USERNAME → Tu usuario de Docker Hub.
 # DOCKER_PASSWORD → Tu token de acceso de Docker Hub (en lugar de la contraseña, genera un token en Docker Hub). Asiga TODOS los permisos al TOKEN.
-
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
 # Construye la imagen
       - name: Construir y etiquetar la imagen (BUILD)
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/lamp-crud-app:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/actividad61-aplicacion-crud-php:latest .
+
 # Sube la imagen a un registro      
       - name: Subir imagen a Docker Hub (PUSH)
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/lamp-crud-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/actividad61-aplicacion-crud-php:latest
 
 # Otra manera es usar una GitHub Actions que contruye y sube la imagen al registro de Docker Hub
       #- name: Build and push
@@ -51,7 +52,7 @@ jobs:
       #  with:
       #    context: .
       #    push: true
-      #    tags: ${{ secrets.DOCKER_USERNAME }}/lamp-crud-app:latest
+      #    tags: ${{ secrets.DOCKER_USERNAME }}/actividad61-aplicacion-crud-php:latest
 
  
 # Trabajo/job 2 (deploy): Despliegue contínuo (CD). Actualiza aplicación  en producción y descarga la imagen del registro de contenedores (Docker Hub)      
@@ -78,4 +79,4 @@ jobs:
                git pull origin main
                docker compose down
                docker compose pull apache
-               docker compose up -d             
+               docker compose up -d
