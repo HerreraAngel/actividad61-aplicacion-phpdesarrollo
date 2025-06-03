@@ -5,7 +5,7 @@ CREATE TABLE focas (
     codigo_animal VARCHAR(15) NOT NULL UNIQUE,
     nombre VARCHAR(50) NOT NULL,
     edad INT NOT NULL,
-    peso DECIMAL(5,2) NOT NULL,
+    peso DECIMAL(6,2) NOT NULL,
     especie VARCHAR(100) NOT NULL,
     habitat VARCHAR(100) NOT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
